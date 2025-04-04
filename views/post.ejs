@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+<section class="blog-main">
+    <div class="blog-container">
+        <div class="blog-posts"> <article class="post">
+                <%- post.content %>
+            </article>
+        </div>
+
+        <%- include('partials/sidebar', { recentPosts: recentPosts }) %>
+
+    </div>
+</section>
+
+<%- include('partials/footer') %>

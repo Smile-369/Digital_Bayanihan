@@ -1,0 +1,55 @@
+<%- include('partials/header') %>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>Jose Rizal</h2>
+        <p>Sino/Ano si Jose Rizal?.</p>
+        <a href="#facts" class="cta-button">Tuklasin Mo!</a>
+    </div>
+</section>
+
+<section class="facts" id="facts">
+    <h3>Mga Yugto ni Jose Rizal</h3> <% if (facts && facts.length > 0) { %>
+        <div class="fact-cards">
+            <% facts.forEach(fact => { %>
+                <div class="card">
+                    <i class="<%= fact.icon_class %>"></i>
+                    <h4><%= fact.source %></h4>
+                    <p><%= fact.definition %></p>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p>No facts available.</p>
+    <% } %>
+</section>
+
+ <section class="blog" id="blog-preview"> <h3>Mga Pinakabagong Blog Posts</h3>
+     <% if (posts && posts.length > 0) { %>
+        <div class="blog-posts">
+            <% posts.forEach(post => { %>
+                <div class="post">
+                    <% if (post.image_url) { %>
+                        <img class="header" src="<%= post.image_url %>" alt="<%= post.title %>">
+                    <% } %>
+                    <h4><%= post.title %></h4>
+                    <p><small>By <%= post.author || 'Unknown' %> on <%= new Date(post.publish_date).toLocaleDateString() %></small></p>
+                    <p><%= post.excerpt %></p>
+                    <a href="/blog/<%= post.slug %>" class="read-more">Read More</a>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p>No recent blog posts found.</p>
+    <% } %>
+     <p style="margin-top: 2rem;"><a href="/blog" class="cta-button">View All Posts</a></p>
+</section>
+
+<section id="contact" style="padding: 4rem 5%; text-align: center;">
+     <h3>Contact Us</h3>
+     <p>Add contact form or information here.</p>
+     <p>Email: info@digitalbayanihan.example</p>
+</section>
+
+
+<%- include('partials/footer') %>

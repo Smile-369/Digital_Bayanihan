@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+<section class="resources" id="resources">
+    <h3>Educational Resources</h3>
+    <% if (resources && resources.length > 0) { %>
+        <div class="resource-list">
+            <% resources.forEach(resource => { %>
+                <div class="resource-item">
+                    <i class="<%= resource.icon_class %>"></i>
+                    <h4><%= resource.title %></h4>
+                    <a href="<%= resource.url %>" class="resource-link" target="_blank">
+                       <%= resource.type === 'video' ? 'Watch Now' : 'Read Now' %>
+                    </a>
+                </div>
+            <% }); %>
+        </div>
+    <% } else { %>
+        <p>No resources available yet.</p>
+    <% } %>
+</section>
+
+<%- include('partials/footer') %>

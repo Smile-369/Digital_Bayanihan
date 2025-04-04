@@ -1,0 +1,12 @@
+<aside class="sidebar">
+    <h3>Recent Posts</h3>
+    <% if (recentPosts && recentPosts.length > 0) { %>
+        <ul class="recent-posts">
+            <% recentPosts.forEach(p => { %>
+                <li><a href="/blog/<%= p.slug %>"><%= p.title %></a></li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No recent posts found.</p>
+    <% } %>
+</aside>
